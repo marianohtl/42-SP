@@ -5,7 +5,8 @@ void ft_lstadd_front(t_list **lst, t_list *new)
 	if(lst == (void *) 0){
 		return(*lst = new);
 	}else{
-		(*lst)->content =
+		new->next
+		 = *lst;
 	}
 }
 
