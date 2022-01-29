@@ -36,6 +36,11 @@ char *ft_itoa(int n){
 		number = ft_strdup("-2147483648");
 		return(number);
 	}
+	if(n == 0){
+		number = ft_strdup("0");
+		return(number);
+	}
+
 
 	if(n < 0)
 	{
