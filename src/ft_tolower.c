@@ -1,25 +1,27 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_tolower.c                                                  /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function tolower.                                 )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
+     Converts the letter c to lower case, if possible.
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
+	 Converte o parâmetro 'c' recebido para minúsculo, se possível.
 */
 
-int ft_isalpha(int c)
+int ft_tolower(int c)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	int new_character;
+
+	new_character = c;
+	if(c >= 'A' && c <= 'Z')
 	{
-		return (1024);
+		new_character = c + 32;
 	}
-	return (0);
+	return(new_character);
 }

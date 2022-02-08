@@ -1,8 +1,8 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_strncmp.c                                                  /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function strncmp.                                 )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
@@ -15,11 +15,20 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
+int ft_strncmp(const char *s1, const char *s2, unsigned int size)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	unsigned int index;
+
+	index = 0;
+	while (s1[index] && s2[index] && index < size)
 	{
-		return (1024);
+		if(s1[index] != s2[index])
+		{
+			return((int) (s1[index] - s2[index]));
+		}
+		index++;
 	}
-	return (0);
+
+	return((int) (s1[index - 1] - s2[index - 1]));
 }
+

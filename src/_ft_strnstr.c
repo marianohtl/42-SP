@@ -1,8 +1,8 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_strnstr.c                                                  /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function strnstr.                                 )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
@@ -15,11 +15,28 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
+char * ft_strnstr(const char * big, const char *little,unsigned int len)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	unsigned int index;
+	unsigned int i_big;
+	unsigned int i_little;
+
+	index = 0;
+	i_big = 0;
+	i_little = 0;
+	while (index < len)
 	{
-		return (1024);
+		if(little[i_little] != '\0')
+			return(&big[index]);
+		if(big[i_big] == little[i_little])
+		{
+			i_little++;
+			i_big++;
+		}else{
+			index++;
+			i_big = index;
+			i_little = 0;
+		}
 	}
-	return (0);
+	return((char *) 0);
 }

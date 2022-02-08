@@ -1,8 +1,8 @@
-/* ********************************************************************************* */
+ /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_memchr.c                                                   /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function memchr.                                  )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
@@ -15,11 +15,18 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
-{
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+ void *ft_memchr(const void *s, int c, unsigned int n)
+ {
+	unsigned int index;
+	char * converted;
+
+	index = 0;
+	converted = (char *) s;
+	while(index < n)
 	{
-		return (1024);
+		if(converted[index] == c)
+			return(converted[index]);
+		index++;
 	}
-	return (0);
-}
+	return((char *) 0);
+ }

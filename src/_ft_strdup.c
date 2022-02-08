@@ -1,9 +1,9 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_strdup.c                                                   /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
-/*   These function do not need any external functions.           (           )      */
+/*   Re-code the function strdup.                                  )         (       */
+/*   Using the function malloc.                                   (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
 /*                                                                                   */
@@ -15,11 +15,25 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
+char *ft_strdup(const char *s)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	char *result;
+	int index, size;
+	size = 0;
+	index = 0;
+	while(s[index] != '\0')
 	{
-		return (1024);
+		index++;
+		size++;
 	}
-	return (0);
+
+	result = malloc(size);
+	index = 0;
+	while(s[index] != '\0')
+	{
+		result[index] = s[index];
+		index++;
+	}
+	result[index] = '\0';
+	return result[0];
 }

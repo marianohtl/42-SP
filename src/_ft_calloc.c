@@ -1,9 +1,9 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_calloc.c                                                   /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
-/*   These function do not need any external functions.           (           )      */
+/*   Re-code the function calloc.                                  )         (       */
+/*   Using the function malloc.                                   (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
 /*                                                                                   */
@@ -15,11 +15,7 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
-{
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
-	{
-		return (1024);
-	}
-	return (0);
+void *ft_calloc(unsigned int nmenb, unsigned int size){
+	void* result = malloc(nmenb * size);
+	return result;
 }

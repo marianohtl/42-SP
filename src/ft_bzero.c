@@ -1,25 +1,26 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_bzero.c                                                    /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function bzero.                                   )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
+    This function sets the first n bytes of the area starting at s to zero (bytes containing aq\0aq).
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
+	Esta função seta os 'n' primeiros bytes que iniciam '*s' para zero.
 */
 
-int ft_isalpha(int c)
+void ft_bzero(void *s, unsigned int n)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	int index;
+	index = 0;
+	while (index < n)
 	{
-		return (1024);
+		((unsigned char *)s)[index] = '\0';
+		index++;
 	}
-	return (0);
 }

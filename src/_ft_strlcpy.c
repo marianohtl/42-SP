@@ -1,25 +1,35 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_isalpha.c                                                  /  o   o  \       */
+/*   ft_strlcpy.c                                                  /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
-/*   Re-code the function isalpha.                                 )         (       */
+/*   Re-code the function strlcpy.                                 )         (       */
 /*   These function do not need any external functions.           (           )      */
 /*                                                               ( (  )   (  ) )     */
 /*                                                              (__(__)___(__)__)    */
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
+    Checks for an alphanumeric character; it is equivalent
+	to (isalpha(c) || isdigit(c)).
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
+	Checa se o parâmetro recebido é um alfanumérico. (letras e números)
 */
 
-int ft_isalpha(int c)
+unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+	unsigned int index;
+
+	index = 0;
+
+	while(index < (size - 1) && src[index] != '\0')
 	{
-		return (1024);
+		dest[index] = src[index];
+		index++;
 	}
-	return (0);
+	dest[index] = '\0';
+	while (src[index] != '\0')
+	{
+		index = index + 1;
+	}
+	return(index);
 }
