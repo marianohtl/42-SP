@@ -29,6 +29,8 @@ resulting from successive applications of 'f'.
 
 ft_striteri.c
 
+
+
 Parameters
 #1 The string on which to iterate.
 #2 The function to apply to each character.
