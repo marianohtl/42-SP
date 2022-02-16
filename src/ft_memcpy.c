@@ -1,6 +1,6 @@
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
-/*   ft_memcpy.c                                                    /  o   o  \       */
+/*   ft_memcpy.c                                                   /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
 /*   Re-code the function memcpy.                                  )         (       */
 /*   These function do not need any external functions.           (           )      */
