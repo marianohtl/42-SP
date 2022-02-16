@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"*.js": "javascriptreact",
-		"ctype.h": "c"
+		"ctype.h": "c",
+		"string.h": "c"
 	}
 }

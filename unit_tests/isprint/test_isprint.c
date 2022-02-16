@@ -13,7 +13,7 @@ void test_isprint(int c)
 	printf("Return Ok\n");
 }
 
-void main()
+int main()
 {
 	int i;
 	i = 0;
