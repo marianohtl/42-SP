@@ -7,5 +7,7 @@ int ft_isalnum(int c);
 int ft_isascii(int c);
 int ft_isprint(int c);
 unsigned int ft_strlen(char *s);
+void *ft_memset(void *s, int c, unsigned int n);
+void ft_bzero(void *s, unsigned int n);
 
 #endif
