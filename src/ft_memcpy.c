@@ -14,6 +14,8 @@
 
 	Esta função copia os 'n' bytes de '*src', para '*dest'.
 	As áreas de memória não devem se sobrepor.
+
+
 */
 
 void *ft_memcpy(void *dest, const void *src, unsigned int n)
