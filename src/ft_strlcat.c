@@ -9,10 +9,7 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-    Checks for an alphanumeric character; it is equivalent
-	to (isalpha(c) || isdigit(c)).
 
-	Checa se o parâmetro recebido é um alfanumérico. (letras e números)
 */
 
 unsigned int ft_strlcat(char *dest, const char *src, unsigned int size)
