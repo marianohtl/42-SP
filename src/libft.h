@@ -10,6 +10,7 @@ unsigned int ft_strlen(char *s);
 void *ft_memset(void *s, int c, unsigned int n);
 void ft_bzero(void *s, unsigned int n);
 void *ft_memcpy(void *dest, const void *src, unsigned int n);
+void	*ft_memmove(void *dest, const void *src, unsigned int n);
 
 
 #endif
