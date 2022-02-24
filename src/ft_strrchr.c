@@ -9,10 +9,7 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
 char * ft_strrchr (const char *string, int c)
@@ -31,7 +28,7 @@ char * ft_strrchr (const char *string, int c)
 	while (string[index])
 	{
 		if (string[length] == convert_c)
-			return(&string[length]);
+			return((char *)&string[length]);
 
 		length--;
 		index++;

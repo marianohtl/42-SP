@@ -9,13 +9,10 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-unsigned int ft_split(char *nptr)
+unsigned int ft_split(const char *nptr)
 {
 	unsigned int index;
 	index = 0;

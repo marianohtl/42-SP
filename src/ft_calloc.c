@@ -9,13 +9,23 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-     Checks for an alphabetic character; in the standard "C" locale, it is equivalent
-	 to (isupper(c) || islower(c)).
 
-	 Checa se o parâmetro recebido é um caracter alfabético.
 */
+#include<stdlib.h>
 
 void *ft_calloc(unsigned int nmenb, unsigned int size){
-	void* result = malloc(nmenb * size);
-	return result;
+
+	unsigned int i;
+	unsigned int total;
+
+	i = 0;
+	total = nmenb * size;
+	char* result = malloc(total);
+	while (i < (total))
+	{
+		result[i] = 0;
+		i++;
+	}
+
+	return (void *) result;
 }
