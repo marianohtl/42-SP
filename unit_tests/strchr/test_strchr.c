@@ -25,5 +25,6 @@ int main()
 	test_strchr("banananu", '\0');
 	test_strchr("banananu", 165);
 	test_strchr(" ", 'z');
+	test_strchr("", 'z');
 
 }
