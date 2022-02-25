@@ -35,6 +35,8 @@ char *ft_strjoin(char const *s1, char const *s2)
 	size += is2;
 
 	concat = malloc(size + 1);
+	is1 = 0;
+	is2 = 0;
 	while (s1[is1] != '\0')
 	{
 		concat[is2] = s1[is1];
@@ -44,7 +46,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	is1 = 0;
 	while (s2[is1] != '\0')
 	{
-		concat[is2] = s1[is1];
+		concat[is2] = s2[is1];
 		is1++;
 		is2++;
 	}

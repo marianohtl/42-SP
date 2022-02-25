@@ -8,8 +8,8 @@ void test_strjoin(char const *s1, char const *s2, char * compare)
 	unsigned int width;
 
 	char *result =  ft_strjoin(s1,s2);
-	width = ft_strlen(result);
-	if(ft_strncmp(result, compare, width) != 0 && result[width] != '\0')
+	width = ft_strlen(compare);
+	if(ft_strncmp(result, compare, width) != 0)
 	{
 		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", result, compare);
 		return;
@@ -22,7 +22,6 @@ int main()
 {
 	test_strjoin("banana", "banana","bananabanana");
 	test_strjoin("banananu", "nananu","banananunananu");
-	test_strjoin("banananu","nananu", "banananunananu");
 	test_strjoin("gatos","gato","gatosgato");
 	test_strjoin("normal", "","normal");
 	test_strjoin("normal","1","normal1");
