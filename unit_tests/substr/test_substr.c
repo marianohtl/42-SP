@@ -9,8 +9,8 @@ void test_substr(char const *s, unsigned int start, unsigned int len, char
 	unsigned int width;
 
 	char *result =  ft_substr(s, start, len);
-	width = ft_strlen(result);
-	if(ft_strncmp(result, compare, len) != 0 && result[width] != '\0')
+	width = ft_strlen(compare);
+	if(ft_strncmp(result, compare, len) != 0)
 	{
 		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", result, compare);
 		return;

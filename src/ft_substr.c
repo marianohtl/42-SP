@@ -23,13 +23,15 @@
 char *ft_substr(char const *s, unsigned int start, unsigned int len)
 {
 	char * substring;
-	int size, diff, memo, index;
+	unsigned int size, diff, memo, index;
 	index = 0;
 	size = 0;
 	while (s[size] != '\0')
 		size++;
 
 	diff = size - start;
+	if(size < start)
+		diff = 0;
 
 	if(diff < len)
 	{
