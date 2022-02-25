@@ -12,13 +12,13 @@
 /*   External Functions                                                              */
 /*   malloc                                                                          */
 /*                                                                                   */
-/*    Description                                                                    */
+/*   Description                                                                     */
 /*                                                                                   */
 /*    Allocates (with mallloc(3)) and returns a new string, which is the result      */
 /*    of the concatenation of 's1' and 's2'.                                         */
 /*                                                                                   */
 /* ********************************************************************************* */
-
+#include<stdlib.h>
 char *ft_strjoin(char const *s1, char const *s2)
 {
 	char *concat;
@@ -34,10 +34,9 @@ char *ft_strjoin(char const *s1, char const *s2)
 		is2++;
 	size += is2;
 
-	if(size == 0)
-		return((char *) 0);
-
 	concat = malloc(size + 1);
+	is1 = 0;
+	is2 = 0;
 	while (s1[is1] != '\0')
 	{
 		concat[is2] = s1[is1];
@@ -47,7 +46,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	is1 = 0;
 	while (s2[is1] != '\0')
 	{
-		concat[is2] = s1[is1];
+		concat[is2] = s2[is1];
 		is1++;
 		is2++;
 	}
