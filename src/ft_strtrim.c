@@ -30,6 +30,7 @@ Description
 Allocates (with mallloc(3)) and returns a copy of 's1' with the characters
 specified in 'set' removed from the beginning and the end of the string.
 */
+#include<stdlib.h>
 
 char* ft_strtrim(char const *s1,char const *set)
 {
@@ -50,7 +51,7 @@ char* ft_strtrim(char const *s1,char const *set)
 	ss1 = index;
 
 	index = 0;
-	while (s1[index] != "\0" && index < sset)
+	while (s1[index] != '\0' && index < sset)
 	{
 		if(set[index] == s1[index])
 			rstart += 1;
