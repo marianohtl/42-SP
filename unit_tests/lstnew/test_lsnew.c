@@ -19,9 +19,32 @@ void test_lstnew(void *content)
 
 	printf("Return Ok\n");
 }
-
-int main()
+int	to_int(void *value)
 {
-	//test_lstnew();
+	return ((int) value);
+}
 
+char	to_char(void *value)
+{
+	return ((char) value);
+}
+
+char	*to_string(void *value)
+{
+	return ((char *) value);
+}
+
+int	*to_int_pointer(void *value)
+{
+	return ((int *) value);
+}
+
+int	main(void)
+{
+	int	*content = {0, 1, 2, 3};
+	int	*expected = {0, 1, 2, 3};
+	test_lstnew(42, to_int, 42);
+	test_lstnew('J', to_char, 'J');
+	test_lstnew("Amendoim", to_string, "Amendoim");
+	test_lstnew(content, to_int_pointer, expected);
 }

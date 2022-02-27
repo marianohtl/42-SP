@@ -19,8 +19,15 @@ void test_split(char const *s, char c, char **campare)
 	printf("Return Ok\n");
 }
 
-int main()
+int	main(void)
 {
-	test_split();
+	char **expected0[] = {"Eu", "quero", "ver", "voce", "me", "chamar", "de", "amendoim\n", ((void *) 0)};
+	char	**expected1[] = {"Lagartixa\t", "tixa\n", "tixas.", ((void *) 0)};
+	char	**expected2[] = {((void *) 0)};
+	char	**expected3[] = {"Gatinhoszinhos", ((void *) 0)};
 
+	test_split("Eu quero ver voce me chamar de amendoim\n", ' ', expected0);
+	test_split("Lagartixa\t@tixa\n@tixas.", '@', expected1);
+	test_split("", '\n', expected2);
+	test_split("Gatinhoszinhos", '\n', expected3);
 }

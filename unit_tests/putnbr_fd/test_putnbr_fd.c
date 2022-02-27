@@ -20,8 +20,12 @@ void test_putnbr_fd(int n, int fd, char * compare)
 	printf("Return Ok\n");
 }
 
-int main()
+int	main(void)
 {
-	//test_putnbr_fd();
-
+	test_putnbr_fd(0, 0, 0);
+	test_putnbr_fd(5, 1, 5);
+	test_putnbr_fd(-8, 2, -8);
+	test_putnbr_fd(2147483647, 0, 2147483647);
+	test_putnbr_fd(-2147483648, 1, -2147483648);
+	test_putnbr_fd(4567, 2, 4567);
 }
