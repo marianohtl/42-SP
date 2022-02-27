@@ -4,20 +4,13 @@
 #include <string.h>
 
 
-void test_putchar_fd(char *s, int fd, char * compare)
+void test_putchar_fd(char c, int fd, char compare)
 {
 	int i = 0;
 	unsigned int width;
 
-	ft_putchar_fd(s,fd);
-	width = ft_strlen(compare);
-	if(0 != 0)
-	{
-		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", compare);
-		return;
-	}
-
-	printf("Return Ok\n");
+	ft_putchar_fd(c,fd);
+	dprintf(fd, " == %c\n", compare);
 }
 
 int	main(void)
