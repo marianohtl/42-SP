@@ -4,41 +4,37 @@
 #include <string.h>
 
 
-void test_striteri(char *s, void (*f) (unsigned int, char*), char * compare)
+void test_striteri(char *s, void (*f)(unsigned int, char*), char * compare)
 {
 	int i = 0;
 	unsigned int width;
 
-	ft_striteri(s,ft_strlen(compare));
+	ft_striteri(s,f);
 	width = ft_strlen(compare);
-	if(0 != 0)
+	if(ft_strncmp(s,compare,width) != 0)
 	{
-		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", compare);
+		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", s, compare);
 		return;
 	}
 
 	printf("Return Ok\n");
 }
-char return_a(unsigned int i, char c)
+void return_a(unsigned int i, char *s)
 {
-	(void) c;
-	(void) i;
-	return ('a');
+	s[i] = 'a';
 }
 
-char	return_printable_plus_one(unsigned int i, char c)
+void	return_printable_plus_one(unsigned int i, char *s)
 {
-	(void) i;
-	if (c < 32)
-		return (c);
-	if (c > 126)
-		return (32);
-	return (c + 1);
+	if (s[i] >= ' ' && s[i] < '~')
+		s[i] = s[i] + 1;
+	else if (s[i] == '~')
+		s[i] = ' ';
 }
 
-char	return_plus_index(unsigned int i, char c)
+void	return_plus_index(unsigned int i, char *s)
 {
-	return ((char) (c + i));
+	s[i] = s[i] + i;
 }
 
 int	main(void)
@@ -48,9 +44,9 @@ int	main(void)
 	char	input2[] = "Gatinhos";
 	char	input3[] = "";
 
-	test_strmapi(input0, return_a, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-	test_strmapi(input1, return_printable_plus_one, "Fv!rvfsp!wfs-\n\twpdf!nf\tdibnbs!ef!bnfoepjn.");
-	test_strmapi(input2, return_plus_index, "Gbvlrmuz");
-	test_strmapi(input3, return_a, "");
+	test_striteri(input0, return_a, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+	test_striteri(input1, return_printable_plus_one, "Fv!rvfsp!wfs-\n\twpdf!nf\tdibnbs!ef!bnfoepjn/");
+	test_striteri(input2, return_plus_index, "Gbvlrmuz");
+	test_striteri(input3, return_a, "");
 }
 
