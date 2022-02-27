@@ -31,7 +31,7 @@ be ended by a NULL pointer.
 char **ft_split(char const *s, char c)
 {
 	int i,ii, sizeall, sizestr;
-	char *allstring, *string;
+	char **allstring, *string;
 
 	i = 0;
 	while(s[i] != '\0')
@@ -42,7 +42,8 @@ char **ft_split(char const *s, char c)
 		i++;
 	}
 
-	*allstring = malloc(sizeall + 2);
+	allstring = (char **) malloc((sizeall + 2)* sizeof(*allstring));
+
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -50,7 +51,7 @@ char **ft_split(char const *s, char c)
 		{
 			sizestr+= 1;
 		}else{
-			string = malloc(sizestr);
+			string = (char *) malloc(sizestr*sizeof(*string));
 			while (ii < i)
 			{
 				string[ii] = s[ii];

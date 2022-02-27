@@ -19,7 +19,3 @@ void test_lstiter(t_list *lst, void (*f)(void*), char * compare)
 
 	printf("Return Ok\n");
 }
-
-int main()
-{
-	//test_lstiter();

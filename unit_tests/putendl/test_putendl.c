@@ -20,8 +20,12 @@ void test_putendl_fd(int n, int fd, char * compare)
 	printf("Return Ok\n");
 }
 
-int main()
+int	main(void)
 {
-	test_putendl_fd();
-
+	test_putendl_fd("Eu quero ver", 0, "Eu quero ver");
+	test_putendl_fd("voce me chamar", 1, "voce me chamar");
+	test_putendl_fd("de amendoim", 2, "de amendoim");
+	test_putendl_fd(" \\o/", 0, " \\o/");
+	test_putendl_fd(" \\o/", 1, " \\o/");
+	test_putendl_fd(" \\o/", 2, " \\o/");
 }

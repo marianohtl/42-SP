@@ -20,8 +20,12 @@ void test_putchar_fd(char *s, int fd, char * compare)
 	printf("Return Ok\n");
 }
 
-int main()
+int	main(void)
 {
-	//test_putchar_fd();
-
+	test_putchar_fd('i', 0, 'i');
+	test_putchar_fd('o', 1, 'o');
+	test_putchar_fd('e', 2, 'e');
+	test_putchar_fd('.', 0, '.');
+	test_putchar_fd('.', 1, '.');
+	test_putchar_fd('.', 2, '.');
 }
