@@ -1,4 +1,3 @@
-
 /* ********************************************************************************* */
 /*                                                                  /\_____/\        */
 /*   ft_strtrim.c                                                  /  o   o  \       */
@@ -30,68 +29,53 @@ Description
 Allocates (with mallloc(3)) and returns a copy of 's1' with the characters
 specified in 'set' removed from the beginning and the end of the string.
 */
+#include"libft.h"
 #include<stdlib.h>
 
-char* ft_strtrim(char const *s1,char const *set)
+int	ft_str_start(char const *s1, char const *set)
 {
-	char *trmstr;
-	int index, sset, ss1, start, end, rstart, rend, replace, diff;
-	index = 0;
-	rstart = 0;
-
-	while (set[index] != '\0')
-		index++;
-
-	sset = index;
+	int		index;
+	char	*equal;
 
 	index = 0;
-	while (s1[index] != '\0')
-		index++;
-
-	ss1 = index;
-
-	index = 0;
-	while (s1[index] != '\0' && index < sset)
+	equal = ft_strchr(set, s1[index]);
+	while (equal != NULL && s1[index])
 	{
-		if(set[index] == s1[index])
-			rstart += 1;
 		index++;
+		equal = ft_strchr(set, s1[index]);
 	}
-	if(rstart == sset)
-		start = index;
+	return (index);
+}
 
-	index = ss1 - 1;
+int	ft_str_end(char const *s1, char const *set, int start)
+{
+	int		index;
+	char	*equal;
 
-	diff = ss1 - sset;
-	while (index >= diff)
+	index = ft_strlen(s1) - 1;
+	equal = ft_strchr(set, s1[index]);
+	while (equal != NULL && index >= start)
 	{
-		if(set[index - diff] == s1[index])
-			rend += 1;
 		index--;
+		equal = ft_strchr(set, s1[index]);
 	}
+	return (index);
+}
 
-	replace = rstart + rend;
-	if (replace == sset || replace == (2*sset))
-	{
-		replace = ss1 - replace;
-		trmstr = malloc(replace + 1);
-	}
-	index = 0;
-	if(start != 0)
-	{
-		while (index <= (replace - 1))
-		{
-			trmstr[index] = s1[start];
-			start++;
-			index++;
-		}
-	}else{
-		while (index <= (replace - 1))
-		{
-			trmstr[index] = s1[index];
-			index++;
-		}
-	}
-	trmstr[index] = '\0';
-	return(trmstr);
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*str_trim;
+	char	*equal;
+	int		start;
+	int		end;
+	int		size_trim;
+
+	start = ft_str_start(s1, set);
+	end = ft_str_end(s1, set, start);
+	size_trim = end - start + 2;
+	str_trim = malloc(size_trim * sizeof(str_trim));
+	if (str_trim == NULL)
+		return (str_trim);
+	ft_strlcpy(str_trim, &s1[start], size_trim);
+	return (str_trim);
 }
