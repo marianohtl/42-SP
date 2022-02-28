@@ -10,7 +10,16 @@ void test_lstlast(t_list *list, char *compare)
 	unsigned int width;
 	t_list *last;
 	last = ft_lstlast(list);
-
+	if (compare == NULL && last != NULL)
+	{
+		printf("Return Null Error");
+		return;
+	}
+	else
+	{
+		printf("Return Ok\n");
+		return ;
+	}
 	if(last->content != compare ){
 		printf("Return Content Error");
 		return;
@@ -28,7 +37,8 @@ int	main(void)
 {
 	t_list *elements[8];
 
-	//test_lstlast(((void *) 0), ((void *) 0));
+	elements[0] = NULL;
+	test_lstlast(elements[0], NULL);
 	elements[0] = ft_lstnew("Eu");
 	test_lstlast(elements[0], "Eu");
 	elements[1] = ft_lstnew("quero");

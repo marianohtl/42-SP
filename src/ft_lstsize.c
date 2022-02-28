@@ -1,15 +1,18 @@
 #include"libft.h"
-//testar caso passe um null pointer para o list, para ver se ocorre um segmentation faul -> ocorre :)
-int ft_lstsize(t_list *list)
+
+int	ft_lstsize(t_list *lst)
 {
-	int length;
-	t_list *aux;
+	int		length;
+	t_list	*aux;
+
+	if (lst == NULL)
+		return (0);
 	length = 1;
-	aux = list;
-	while (aux->next != ((void*)0) )
+	aux = lst;
+	while (aux->next != NULL)
 	{
 		aux = aux->next;
 		length++;
 	}
-	return length;
+	return (length);
 }

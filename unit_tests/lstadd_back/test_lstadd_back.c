@@ -7,18 +7,28 @@ void test_lstadd_back(t_list **lst, t_list *new)
 {
 	int i = 0;
 	unsigned int width;
-	t_list *list, * last;
+	t_list *list, *last;
 	last = ft_lstlast(*lst);
 	list = *lst;
 	ft_lstadd_back(lst, new);
 
-	if(last->content != new->content ){
-		printf("Return Content Error");
+	if (last == NULL && *lst != new)
+	{
+		printf("Return Null Error\n");
+		return ;
+	}
+	else
+	{
+		printf("Return OK\n");
+		return ;
+	}
+	if(last->next->content != new->content ){
+		printf("Return Content Error\n");
 		return;
 	}
-	if(NULL != last->next)
+	if(NULL != last->next->next)
 	{
-		printf("Return Next Address Error");
+		printf("Return Next Address Error\n");
 		return;
 	}
 
@@ -32,6 +42,7 @@ int	main(void)
 	t_list	*lst1;
 	t_list	*new1;
 	t_list	*new2;
+	t_list	*lst_void;
 
 	lst0 = ft_lstnew("Eu quero ver voce ");
 	new0 = ft_lstnew("me chamar de amendoim");
@@ -40,5 +51,6 @@ int	main(void)
 	new1 = ft_lstnew("tixastixa");
 	test_lstadd_back(&lst1, new1);
 	new2 = ft_lstnew("Gatinhos");
-	test_lstadd_back(((void *) 0), new2);
+	lst_void = NULL;
+	test_lstadd_back(&lst_void, new2);
 }

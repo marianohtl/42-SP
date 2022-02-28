@@ -31,6 +31,7 @@ int	main(void)
 	t_list	*lst1;
 	t_list	*new1;
 	t_list	*new2;
+	t_list	*lst_void;
 
 	new0 = ft_lstnew("Eu quero ver voce ");
 	lst0 = ft_lstnew("me chamar de amendoim");
@@ -39,5 +40,6 @@ int	main(void)
 	lst1 = ft_lstnew("tixastixa");
 	test_lstadd_front(&lst1, new1);
 	new2 = ft_lstnew("Gatinhos");
-	test_lstadd_front(((void *) 0), new2);
+	lst_void = NULL;
+	test_lstadd_front(&lst_void, new2);
 }
