@@ -13,7 +13,7 @@ void test_lstiter(t_list *lst, void (*f)(void*), t_list * compare)
 
 	while(lst != (void *)0)
 	{
-		if(lst->content != compare->content)
+		if(ft_strncmp(lst->content, compare->content, ft_strlen(compare->content)) != 0)
 		{
 			printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", (char *)lst->content, (char *)compare->content);
 		}
@@ -50,8 +50,8 @@ int	main(void)
 	t_list *lst, *new, *compare, *lst_a;
 	int i;
 	char *content_lst[] = {"Eu"," quero ","ver,"," voce ","me", " chamar ","de"," AMENDOIM. ", NULL};
-	char *content_compare[] = {"Fv","!rvfsp!","ufs,","!xpdf!","nf", "!dibnbs!","ef","!BNFOEPJN/!", NULL};
-	lst = ft_lstnew(content_lst[0]);
+	char *content_compare[] = {"Fv","!rvfsp!","wfs-","!wpdf!","nf", "!dibnbs!","ef","!BNFOEPJN/!", NULL};
+	lst = ft_lstnew(ft_strdup(content_lst[0]));
 	compare = ft_lstnew(content_compare[0]);
 	i=1;
 	while (content_lst[i] != NULL)
@@ -72,7 +72,7 @@ int	main(void)
 		ft_lstadd_back(&lst_a,ft_lstnew("a"));
 		i++;
 	}
-	//test_lstiter(lst, plus_one, compare);
+	test_lstiter(lst, plus_one, compare);
 	test_lstiter(lst, a, lst_a);
 }
 
