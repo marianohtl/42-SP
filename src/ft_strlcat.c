@@ -38,6 +38,9 @@ unsigned int ft_strlcat(char *dest, const char *src, unsigned int size)
 		size_dest++;
 		index++;
 	}
-	dest[size_dest - 1] = '\0';
+	if(size_dest == size)
+		dest[size_dest - 1] = '\0';
+	else
+		dest[size_dest] = '\0';
 	return(all_size);
 }

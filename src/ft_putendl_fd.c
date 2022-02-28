@@ -1,13 +1,8 @@
+#include"libft.h"
 #include<unistd.h>
 
-void ft_putendl_fd(char *s, int fd){
-	int index;
-	index = 0;
-
-	while(s[index] != '\0')
-		index++;
-
-	write(fd, s, index);
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }
-

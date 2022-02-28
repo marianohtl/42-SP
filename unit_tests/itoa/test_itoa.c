@@ -26,4 +26,7 @@ int main()
 	test_itoa(2147483647, "2147483647");
 	test_itoa(0, "0");
 	test_itoa(-456, "-456");
+	test_itoa(-5, "-5");
+	test_itoa(9, "9");
+	test_itoa(10, "10");
 }

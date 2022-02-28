@@ -5,6 +5,7 @@
 		"string.h": "c",
 		"stdlib.h": "c",
 		"stdio.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"unit_test.h": "c"
 	}
 }

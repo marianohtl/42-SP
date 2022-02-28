@@ -14,7 +14,7 @@ void test_strlcat(char *dest, const char *src, char *origin_dest, const char *or
 		printf("Return Error\n\tResult   %d\n\tExpected %d\n",result, expected);
 	}
 
-	while (i < size&& dest[i] != '\0' && origin_dest[i] != '\0')
+	while (i < size && origin_dest[i] != '\0')
 	{
 		if(dest[i] != origin_dest[i])
 		{
@@ -23,7 +23,7 @@ void test_strlcat(char *dest, const char *src, char *origin_dest, const char *or
 		}
 		i++;
 	}
-	printf("Return Ok\n");
+	printf("Return Ok %s %s\n", origin_dest, dest);
 }
 
 int main()
@@ -33,9 +33,9 @@ int main()
 	char original_destiny[40] = "meu ";
 	test_strlcat(destiny, "testezinho", original_destiny,"testezinho", 14);
 
-	char destiny_s[14] = "Nezuko ";
-	char original_destiny_s[14] = "Nezuko ";
-	test_strlcat(destiny_s, "chan", original_destiny_s,"chan", 12);
+	char destiny_s[14] = "banana";
+	char original_destiny_s[14] = "banana";
+	test_strlcat(destiny_s, "banana", original_destiny_s,"banana", 13);
 
 	char destiny_t[20] = "Nezuko \0@@@@@@@@@@@";
 	char original_destiny_t[20] = "Nezuko \0@@@@@@@@@@@";

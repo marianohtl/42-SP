@@ -29,6 +29,7 @@ Iterates the list 'lst' and applies the function 'f' to the content of each elem
 */
 
 #include"libft.h"
+#include<stdlib.h>
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void*),void(*del)(void*))
 {

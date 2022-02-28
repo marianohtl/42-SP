@@ -26,53 +26,56 @@ Allocates (with mallloc(3)) and returns a string representing the integer
 received as an argument. Negative numbers must be handled.
 */
 #include <stdlib.h>
+#include"libft.h"
 
-char *ft_strdup(const char *s);
+int	ft_get_digit(int numerator)
+{
+	int	digit;
 
+	digit = 1;
+	while (numerator > 9)
+	{
+		numerator = numerator / 10;
+		digit++;
+	}
+	return (digit);
+}
 
-char *ft_itoa(int n){
+void	ft_make_char_number(int n, char *number, int digit, char signal)
+{
+	number[digit] = '\0';
+	digit--;
+	while (digit >= 0)
+	{
+		number[digit] = n % 10 + '0';
+		n = n / 10;
+		digit--;
+	}
+	if (signal == 1)
+		number[digit + 1] = '-';
+}
 
-	char *number, signal;
-	int numerator, index, dgt;
+char	*ft_itoa(int n)
+{
+	char	*number;
+	char	signal;
+	int		index;
+	int		digit;
 
 	signal = 0;
-
-	if(n == -2147483648)
-	{
-		number = ft_strdup("-2147483648");
-		return(number);
-	}
-	if(n == 0){
-		number = ft_strdup("0");
-		return(number);
-	}
-
-
-	if(n < 0)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n < 0)
 	{
 		n *= -1;
 		signal = 1;
 	}
-
-	dgt = 0;
-	numerator = n;
-	while(numerator > 9)
-	{
-		numerator = numerator / 10;
-		dgt++;
-	}
-
-	number = malloc(dgt + 1 + signal);
-	number[dgt + signal] = '\0';
-	dgt--;
-	while (dgt >= 0)
-	{
-		number[dgt + signal] = n % 10 + '0';
-		n = n / 10;
-		dgt--;
-	}
-	if(signal == 1)
-		number[dgt + 1] = '-';
-
-	return(number);
+	digit = ft_get_digit(n) + signal;
+	number = malloc(digit + 1);
+	if (number == NULL)
+		return (number);
+	ft_make_char_number(n, number, digit, signal);
+	return (number);
 }

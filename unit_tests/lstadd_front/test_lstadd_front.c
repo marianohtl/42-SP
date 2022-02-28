@@ -3,17 +3,21 @@
 #include<stdio.h>
 #include <string.h>
 
-
 void test_lstadd_front(t_list **lst, t_list *new)
 {
 	int i = 0;
 	unsigned int width;
+	t_list *list;
+	list = *lst;
+	ft_lstadd_front(lst, new);
 
-	ft_lstadd_front(lst,new);
-
-	if(0 != 0)
+	if((*lst)->content != new->content ){
+		printf("Return Content Error");
+		return;
+	}
+	if(list != (*lst)->next)
 	{
-		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n");
+		printf("Return Next Address Error");
 		return;
 	}
 
@@ -30,10 +34,10 @@ int	main(void)
 
 	new0 = ft_lstnew("Eu quero ver voce ");
 	lst0 = ft_lstnew("me chamar de amendoim");
-	test_lstadd_front(lst0, new0);
+	test_lstadd_front(&lst0, new0);
 	new1 = ft_lstnew("Lagartixa");
 	lst1 = ft_lstnew("tixastixa");
-	test_lstadd_front(lst1, new1);
+	test_lstadd_front(&lst1, new1);
 	new2 = ft_lstnew("Gatinhos");
 	test_lstadd_front(((void *) 0), new2);
 }
