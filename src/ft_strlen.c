@@ -16,7 +16,7 @@
 	 derando o byte nulo final \0.
 */
 
-unsigned int ft_strlen(char *s)
+unsigned int ft_strlen(const char *s)
 {
 	unsigned int index;
 	index = 0;

@@ -12,7 +12,7 @@
 
 */
 
-unsigned int ft_split(const char *nptr)
+unsigned int ft_split_atoi(const char *nptr)
 {
 	unsigned int index;
 	index = 0;
@@ -33,7 +33,7 @@ int ft_atoi(const char *nptr)
 	digit = 0;
 	mult = 1;
 
-	index = ft_split(nptr);
+	index = ft_split_atoi(nptr);
 	if(nptr[index] == '+' || nptr[index] == '-')
 	{
 		if( nptr[index] == '-')

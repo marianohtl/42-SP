@@ -19,37 +19,30 @@
 
 */
 #include<stdlib.h>
+#include"libft.h"
 
-char *ft_substr(char const *s, unsigned int start, unsigned int len)
+char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 {
-	char * substring;
-	unsigned int size, diff, memo, index;
-	index = 0;
-	size = 0;
-	while (s[size] != '\0')
-		size++;
+	char			*substring;
+	unsigned int	size;
+	unsigned int	diff;
+	unsigned int	memo;
 
+	size = ft_strlen(s);
 	diff = size - start;
-	if(size < start)
+	if (size < start)
 		diff = 0;
-
-	if(diff < len)
+	if (diff < len)
 	{
 		memo = diff;
-	}else{
+	}
+	else
+	{
 		memo = len;
 	}
-	substring = malloc(memo + 1);
-	if(substring == (void *)0)
-		return(substring);
-
-	while(index < memo)
-	{
-		substring[index] = s[start];
-		index++;
-		start++;
-	}
-	substring[memo] = '\0';
-	return(substring);
+	substring = malloc((memo + 1) * sizeof(*substring));
+	if (substring == NULL)
+		return (substring);
+	ft_strlcpy(substring, &s[start], memo + 1);
+	return (substring);
 }
-

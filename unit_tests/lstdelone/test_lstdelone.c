@@ -10,15 +10,21 @@ void test_lstdelone(t_list *lst, void (*del) (void *))
 	int i = 0;
 	unsigned int width;
 
-	ft_lstdelone(lst,ft_strlen(width));
-
-	if(0 != 0)
-	{
-		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n");
-		return;
-	}
+	ft_lstdelone(lst,del);
+	//free(lst);
 
 	printf("Return Ok\n");
+}
+
+void del_with_a(void *s)
+{
+	int i;
+	i = 0;
+	while (((char *)s)[i])
+	{
+		((char *)s)[i] = 'a';
+		i++;
+	}
 }
 
 int	main(void)
@@ -38,8 +44,8 @@ int	main(void)
 	new0->next = lst1;
 	lst1->next = new1;
 	new1->next = new2;
-	test_lstdelone(lst0, free);
-	test_lstdelone(lst1, free);
-	test_lstdelone(new2, free);
-	test_lstdelone(((void *) 0), free);
+	test_lstdelone(lst0, del_with_a);
+	test_lstdelone(lst1, del_with_a);
+	test_lstdelone(new2, del_with_a);
+	//test_lstdelone(((void *) 0), del_with_a);
 }

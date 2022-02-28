@@ -1,41 +1,52 @@
+#include"libft.h"
 #include<unistd.h>
-void ft_putnbr_fd(int n, int fd){
-	int dgt, newn, sdgt, signal;
-	char number[12];
 
-	newn = n;
-	dgt = 0;
-	signal = 0;
+int	ft_get_digit_fd(int numerator)
+{
+	int	digit;
 
-	if(n == "-2147483648"){
-		write(fd, n, 11);
-		return;
-	}
-	if(n == 0){
-		write(fd, "0", 1);
-		return;
-	}
-
-	if(n < 0){
-		signal = 1;
-		number[0] = '-';
-		n = n * -1;
-	}
-
-	while (newn > 0)
+	digit = 1;
+	while (numerator > 9)
 	{
-		newn = n / 10;
-		dgt++;
+		numerator = numerator / 10;
+		digit++;
 	}
-	dgt = dgt + signal;
-	sdgt = dgt;
-	number[dgt] = '\0';
-	while (dgt > 0)
+	return (digit);
+}
+
+void	ft_make_char_number_fd(int n, char *number, int digit, char signal)
+{
+	number[digit] = '\0';
+	digit--;
+	while (digit >= 0)
 	{
-		number[dgt - 1 + signal] = n % 10 + '0';
+		number[digit] = n % 10 + '0';
 		n = n / 10;
-		dgt--;
+		digit--;
 	}
+	if (signal == 1)
+		number[digit + 1] = '-';
+}
 
-	write(fd, number,sdgt);
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	number[12];
+	char	signal;
+	int		index;
+	int		digit;
+
+	signal = 0;
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		n *= -1;
+		signal = 1;
+	}
+	digit = ft_get_digit_fd(n) + signal;
+	ft_make_char_number_fd(n, number, digit, signal);
+	ft_putstr_fd(number, fd);
 }

@@ -4,16 +4,29 @@
 #include <string.h>
 
 
-void test_ft_lstlast(t_list *list, char *compare)
+void test_lstlast(t_list *list, char *compare)
 {
 	int i = 0;
 	unsigned int width;
-
-	ft_ft_lstlast(list);
-	width = ft_strlen(compare);
-	if(0 != 0)
+	t_list *last;
+	last = ft_lstlast(list);
+	if (compare == NULL && last != NULL)
 	{
-		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", compare);
+		printf("Return Null Error");
+		return;
+	}
+	else
+	{
+		printf("Return Ok\n");
+		return ;
+	}
+	if(last->content != compare ){
+		printf("Return Content Error");
+		return;
+	}
+	if(NULL != last->next)
+	{
+		printf("Return Next Address Error");
 		return;
 	}
 
@@ -24,7 +37,8 @@ int	main(void)
 {
 	t_list *elements[8];
 
-	test_lstlast(((void *) 0), ((void *) 0));
+	elements[0] = NULL;
+	test_lstlast(elements[0], NULL);
 	elements[0] = ft_lstnew("Eu");
 	test_lstlast(elements[0], "Eu");
 	elements[1] = ft_lstnew("quero");

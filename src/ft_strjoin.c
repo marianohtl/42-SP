@@ -19,37 +19,19 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 #include<stdlib.h>
-char *ft_strjoin(char const *s1, char const *s2)
+#include"libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *concat;
-	int size, is1,is2;
-	size = 0;
-	is1 = 0;
-	is2 = 0;
-	while (s1[is1] != '\0')
-		is1++;
-	size = is1;
+	char	*concat;
+	int		all_size;
 
-	while (s2[is2] != '\0')
-		is2++;
-	size += is2;
-
-	concat = malloc(size + 1);
-	is1 = 0;
-	is2 = 0;
-	while (s1[is1] != '\0')
-	{
-		concat[is2] = s1[is1];
-		is1++;
-		is2++;
-	}
-	is1 = 0;
-	while (s2[is1] != '\0')
-	{
-		concat[is2] = s2[is1];
-		is1++;
-		is2++;
-	}
-	concat[is2] = '\0';
-	return concat;
+	all_size = ft_strlen(s1);
+	all_size += ft_strlen(s2);
+	concat = malloc((all_size + 1) * sizeof(*concat));
+	if (concat == NULL)
+		return (concat);
+	ft_strlcpy(concat, s1, all_size + 1);
+	ft_strlcat(concat, s2, all_size + 1);
+	return (concat);
 }
