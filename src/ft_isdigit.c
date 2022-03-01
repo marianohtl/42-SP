@@ -14,11 +14,9 @@
 	Checa se o parâmetro recebido é um digito de 0 a 9.
 */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
-	{
 		return (2048);
-	}
 	return (0);
 }

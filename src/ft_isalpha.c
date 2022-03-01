@@ -15,11 +15,9 @@
 	 Checa se o parâmetro recebido é um caracter alfabético.
 */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
-	{
 		return (1024);
-	}
 	return (0);
 }

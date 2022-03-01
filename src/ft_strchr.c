@@ -9,31 +9,23 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-
 */
+#include"libft.h"
 
-char * ft_strchr (const char *string, int c)
+char	*ft_strchr(const char *string, int c)
 {
-	unsigned int index;
-	char convert_c;
-	char *occurrency;
+	unsigned int	index;
+	char			convert_c;
 
 	convert_c = (char) c;
 	index = 0;
-	while (string[index])
+	while (string[index] != '\0')
 	{
 		if (string[index] == convert_c)
-		{
-			occurrency = (char*) &string[index];
-			return(occurrency);
-		}
+			return ((char *) &string[index]);
 		index++;
 	}
-	if(string[index] == c)
-	{
-		occurrency = (char*) &string[index];
-		return(occurrency);
-	}
-
-	return((char *) 0);
+	if (string[index] == convert_c)
+		return ((char *) &string[index]);
+	return (NULL);
 }
