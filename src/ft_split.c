@@ -74,13 +74,17 @@ void	ft_add_words(char **words, const char *s, char c)
 			size_str += 1;
 		else
 		{
-			ft_add_word(words, &s[i_str - size_str], size_str, i_word);
+			if (size_str != 0)
+			{
+				ft_add_word(words, &s[i_str - size_str], size_str, i_word);
+				i_word++;
+			}
 			size_str = 0;
-			i_word++;
 		}
 		i_str++;
 	}
-	ft_add_word(words, &s[i_str - size_str], size_str, i_word);
+	if (size_str != 0)
+		ft_add_word(words, &s[i_str - size_str], size_str, i_word);
 	words[i_word + 1] = NULL;
 }
 

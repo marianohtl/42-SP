@@ -65,7 +65,6 @@ int	ft_str_end(char const *s1, char const *set, int start)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str_trim;
-	char	*equal;
 	int		start;
 	int		end;
 	int		size_trim;
