@@ -58,12 +58,10 @@ int    main(void)
     new2 = ft_lstnew(ft_strdup("Gatinhos"));
     new3 = ft_lstnew(ft_strdup("zinhos"));
     ft_lstadd_back(&lst0, new0);
-    // ft_lstadd_back(&lst0, lst1);
     ft_lstadd_back(&lst1, new1);
     ft_lstadd_back(&lst1, new2);
     ft_lstadd_back(&lst1, new3);
 	lst2 = NULL;
-	// lst1 = lst0->next->next;
     test_lstclear(&lst1, to_a_str);
     test_lstclear(&lst0, del_str);
     test_lstclear(&lst2, del_str);
