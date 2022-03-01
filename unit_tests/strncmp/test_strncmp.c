@@ -28,4 +28,5 @@ int main()
 	test_strncmp("strings iguais","strings diferentes", 7);
 	test_strncmp("","",10);
 	test_strncmp("gato","gatos",4);
+	test_strncmp("test\200", "test\0", 6);
 }

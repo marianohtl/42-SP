@@ -9,8 +9,8 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-
 */
+#include"libft.h"
 
 char * ft_strrchr (const char *string, int c)
 {
@@ -18,11 +18,7 @@ char * ft_strrchr (const char *string, int c)
 	unsigned int length;
 	char convert_c;
 
-	index = 0;
-	while (string[index])
-		index++;
-
-	length = index;
+	length = ft_strlen(string);
 	index = 0;
 	convert_c = (char) c;
 	while (string[index])
@@ -33,5 +29,7 @@ char * ft_strrchr (const char *string, int c)
 		length--;
 		index++;
 	}
-	return((char *) 0);
+	if (string[length] == convert_c)
+		return((char *)&string[length]);
+	return (NULL);
 }

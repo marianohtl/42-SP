@@ -19,14 +19,15 @@ unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int index;
 
-	index = 0;
 
-	while(index < (size - 1) && src[index] != '\0')
+	index = 0;
+	while(index + 1 < size && src[index] != '\0')
 	{
 		dest[index] = src[index];
 		index++;
 	}
-	dest[index] = '\0';
+	if (size != 0)
+		dest[index] = '\0';
 	while (src[index] != '\0')
 	{
 		index = index + 1;

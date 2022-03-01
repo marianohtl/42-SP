@@ -32,7 +32,6 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	number[12];
 	char	signal;
-	int		index;
 	int		digit;
 
 	signal = 0;

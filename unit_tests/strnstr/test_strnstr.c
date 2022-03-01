@@ -25,4 +25,6 @@ int main()
 	test_strnstr("barata", "barara",4);
 	test_strnstr("","",3);
 	test_strnstr("gatosarrombadinhos","arrombadinhosfofos",3);
+	test_strnstr("lorem ipsum dolor sit amet", "dolor", 15);
+
 }

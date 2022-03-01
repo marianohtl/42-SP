@@ -34,4 +34,5 @@ int main()
 	test_memcmp("strings iguais","strings diferentes", 7);
 	test_memcmp("","",10);
 	test_memcmp("gato","gatos",4);
+	test_memcmp("t\200", "t\0", 2);
 }

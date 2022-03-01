@@ -10,7 +10,7 @@ void test_strmapi(char const *s, char(*f)(unsigned int, char), char * compare)
 
 	char *result =  ft_strmapi(s,f);
 	width = ft_strlen(compare);
-	if(ft_strncmp(result, compare, width) != 0)
+	if(ft_strncmp(result, compare, width) != 0 || result[width] != '\0')
 	{
 		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", result, compare);
 		return;

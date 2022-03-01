@@ -36,6 +36,9 @@ int main()
 	test_strlcpy(destiny, "meu testezinho", original_destiny,"meu testezinho", 15);
 	test_strlcpy(destiny, "lagartixas", original_destiny,"lagartixas", 16);
 	test_strlcpy(destiny, "lagartixas", original_destiny,"lagartixas", 0);
-
-
+	memset(destiny, 0, 40);
+	memset(destiny, 'r', 6);
+	memset(original_destiny, 0, 40);
+	memset(original_destiny, 'r', 6);
+	test_strlcpy(destiny, "lorem ipsum dolor sit amet", original_destiny, "lorem ipsum dolor sit amet", 0);
 }

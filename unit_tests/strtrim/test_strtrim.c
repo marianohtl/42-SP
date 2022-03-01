@@ -9,8 +9,13 @@ void test_strtrim(char const *s1,char const *set, char * compare)
 	unsigned int width;
 
 	char *result =  ft_strtrim(s1,set);
+	if (result == NULL)
+	{
+		printf("Return NULL\n");
+		return;
+	}
 	width = ft_strlen(compare);
-	if(ft_strncmp(result, compare, width) != 0)
+	if(ft_strncmp(result, compare, width) != 0 || result[width] != '\0')
 	{
 		printf("Return Error\n\tResult   `%s`\n\tExpected `%s`\n", result, compare);
 		return;
@@ -28,6 +33,7 @@ int main()
 	test_strtrim("banananu", "ana","banananu");
 	test_strtrim("banananu","", "banananu");
 	test_strtrim("gatos","gato","s");
+	test_strtrim("gatosss","s","gato");
 	test_strtrim("banana", "gato","banan");
 	test_strtrim("normal","normal","");
 	test_strtrim("@@normal@@","@","normal");

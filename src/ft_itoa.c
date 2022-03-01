@@ -59,7 +59,6 @@ char	*ft_itoa(int n)
 {
 	char	*number;
 	char	signal;
-	int		index;
 	int		digit;
 
 	signal = 0;

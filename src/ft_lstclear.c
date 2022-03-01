@@ -1,15 +1,17 @@
 #include"libft.h"
 #include<stdlib.h>
 
-void ft_lstclear(t_list **lst, void (*del) (void*)){
-	t_list *next_element, *current_element;
-	next_element = *lst;
-	while (next_element->next != (void*)0)
+void	ft_lstclear(t_list **lst, void (*del) (void*))
+{
+	t_list	*element;
+	t_list	*element_clean;
+
+	element = *lst;
+	while (element != NULL)
 	{
-		del(next_element->content);
-		next_element = next_element->next;
-		current_element = next_element;
-		free(current_element);
+		element_clean = element;
+		element = element->next;
+		ft_lstdelone(element_clean, del);
 	}
-	lst = ((void*)0);
+	*lst = NULL;
 }
