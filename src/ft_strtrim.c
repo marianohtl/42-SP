@@ -72,7 +72,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = ft_str_start(s1, set);
 	end = ft_str_end(s1, set, start);
 	size_trim = end - start + 2;
-	str_trim = malloc(size_trim * sizeof(str_trim));
+	str_trim = malloc(size_trim * sizeof(*str_trim));
 	if (str_trim == NULL)
 		return (str_trim);
 	ft_strlcpy(str_trim, &s1[start], size_trim);

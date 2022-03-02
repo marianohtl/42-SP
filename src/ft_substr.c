@@ -33,16 +33,17 @@ char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 	if (size < start)
 		diff = 0;
 	if (diff < len)
-	{
 		memo = diff;
-	}
 	else
-	{
 		memo = len;
-	}
 	substring = malloc((memo + 1) * sizeof(*substring));
 	if (substring == NULL)
 		return (substring);
+	if (size < start)
+	{
+		substring[0] = '\0';
+		return (substring);
+	}
 	ft_strlcpy(substring, &s[start], memo + 1);
 	return (substring);
 }

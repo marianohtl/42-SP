@@ -34,7 +34,9 @@ int	main(void)
 	char	*expected2[] = {"",((void *) 0)};
 	char	*expected3[] = {"Gatinhoszinhos", ((void *) 0)};
 
+	ft_split("  tripouille  42  ", ' ');
 	test_split("Eu quero ver voce me chamar de amendoim\n", ' ', expected0);
+	test_split("     Eu   quero    ver        voce  me    chamar   de     amendoim\n           ", ' ', expected0);
 	test_split("Lagartixa\t@tixa\n@tixas.", '@', expected1);
 	test_split("", '\n', expected2);
 	test_split("Gatinhoszinhos", '\n', expected3);

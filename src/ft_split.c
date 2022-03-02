@@ -30,22 +30,32 @@ be ended by a NULL pointer.
 #include"libft.h"
 #include<stdlib.h>
 
-int	ft_count_c(char const *s, char c)
+int	ft_count_words(char const *s, char c)
 {
-	int	count_c;
 	int	i;
+	int	count_words;
+	int	found_word;
 
+	count_words = 0;
 	i = 0;
+	found_word = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			count_c += 1;
+		if (s[i] != c)
+			found_word = 1;
+		if (s[i] == c && found_word == 1)
+		{
+			count_words += 1;
+			found_word = 0;
+		}
 		i++;
 	}
-	return (count_c);
+	if (found_word == 1)
+		count_words += 1;
+	return (count_words);
 }
 
-void	ft_add_word(char **words, const char *s, int size, int i_word)
+int	ft_add_word(char **words, const char *s, int size, int i_word)
 {
 	char	*word;
 
@@ -53,10 +63,11 @@ void	ft_add_word(char **words, const char *s, int size, int i_word)
 	if (words == NULL)
 	{
 		words[i_word] = word;
-		return ;
+		return (i_word + 1);
 	}
 	ft_strlcpy(word, s, size + 1);
 	words[i_word] = word;
+	return (i_word + 1);
 }
 
 void	ft_add_words(char **words, const char *s, char c)
@@ -75,24 +86,21 @@ void	ft_add_words(char **words, const char *s, char c)
 		else
 		{
 			if (size_str != 0)
-			{
-				ft_add_word(words, &s[i_str - size_str], size_str, i_word);
-				i_word++;
-			}
+				i_word = ft_add_word(words, &s[i_str - size_str], size_str, i_word);
 			size_str = 0;
 		}
 		i_str++;
 	}
 	if (size_str != 0)
-		ft_add_word(words, &s[i_str - size_str], size_str, i_word);
-	words[i_word + 1] = NULL;
+		i_word = ft_add_word(words, &s[i_str - size_str], size_str, i_word);
+	words[i_word] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
 
-	words = malloc((ft_count_c(s, c) + 2) * sizeof(*words));
+	words = malloc((ft_count_words(s, c) + 1) * sizeof(*words));
 	if (words == NULL)
 		return (words);
 	ft_add_words(words, s, c);

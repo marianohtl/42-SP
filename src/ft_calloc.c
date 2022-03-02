@@ -9,23 +9,19 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-
 */
+#include"libft.h"
 #include<stdlib.h>
 
-void *ft_calloc(unsigned int nmenb, unsigned int size){
+void	*ft_calloc(unsigned int nmenb, unsigned int size)
+{
+	unsigned int	length;
+	void			*result;
 
-	unsigned int i;
-	unsigned int total;
-
-	i = 0;
-	total = nmenb * size;
-	char* result = malloc(total);
-	while (i < (total))
-	{
-		result[i] = 0;
-		i++;
-	}
-
-	return (void *) result;
+	length = nmenb * size;
+	result = malloc(length);
+	if (result == NULL)
+		return (result);
+	ft_bzero(result, length);
+	return (result);
 }

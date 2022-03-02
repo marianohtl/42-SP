@@ -9,21 +9,21 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-
 */
+#include"libft.h"
 
- void *ft_memchr(const void *s, int c, unsigned int n)
- {
-	unsigned int index;
-	char * converted;
+void	*ft_memchr(const void *s, int c, unsigned int n)
+{
+	unsigned int	index;
+	const char		*converted;
 
 	index = 0;
-	converted = (char *) s;
-	while(index < n)
+	converted = s;
+	while (index < n)
 	{
-		if(converted[index] == c)
-			return((void *) &converted[index]);
+		if (converted[index] == (char)c)
+			return ((void *) &converted[index]);
 		index++;
 	}
-	return((char *) 0);
- }
+	return (NULL);
+}

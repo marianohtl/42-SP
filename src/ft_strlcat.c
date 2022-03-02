@@ -11,36 +11,17 @@
 /*
 
 */
+#include"libft.h"
 
-unsigned int ft_strlcat(char *dest, const char *src, unsigned int size)
+unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 {
-	unsigned int index;
-	unsigned int size_src;
-	unsigned int size_dest;
-	unsigned int all_size;
+	unsigned int	size_src;
+	unsigned int	size_dest;
 
-	index = 0;
-	size_src = 0;
-	size_dest = 0;
-	while (src[size_src])
-		size_src++;
-
-	while (dest[size_dest])
-		size_dest++;
-
-	if(size <= size_dest)
-		return(size_src + size);
-
-	all_size = size_dest + size_src;
-	while ((src[index] != '\0') && (size_dest < size))
-	{
-		dest[size_dest] = ((unsigned char *)src)[index];
-		size_dest++;
-		index++;
-	}
-	if(size_dest == size)
-		dest[size_dest - 1] = '\0';
-	else
-		dest[size_dest] = '\0';
-	return(all_size);
+	size_src = ft_strlen(src);
+	size_dest = ft_strlen(dest);
+	if (size <= size_dest)
+		return (size_src + size);
+	ft_strlcpy(&dest[size_dest], src, size - size_dest);
+	return (size_dest + size_src);
 }

@@ -24,28 +24,27 @@
 	na memória a frente de dest (src > dest), iniciamos a cópia do último byte de
 	src no intuito de evitar problemas de sobreposição (caso
 	ocorra essa intesecção de src e dest).
-
-
 */
+#include"libft.h"
 
 void	*ft_memmove(void *dest, const void *src, unsigned int n)
 {
-	unsigned int index;
-	if(src < dest)
+	unsigned int		index;
+	unsigned char		*str_dest;
+	const unsigned char	*str_src;
+
+	str_dest = dest;
+	str_src = src;
+	if (src < dest)
 	{
 		index = n;
 		while (index > 0)
 		{
-			((unsigned char *)dest)[index - 1] = ((unsigned char *)src)[index - 1];
-			index = index - 1;
-		}
-	}else{
-		index = 0;
-		while (index < n)
-		{
-			((unsigned char *)dest)[index] = ((unsigned char *)src)[index];
-			index = index + 1;
+			str_dest[index - 1] = str_src[index - 1];
+			index--;
 		}
 	}
+	else
+		ft_memcpy(dest, src, n);
 	return (dest);
 }
