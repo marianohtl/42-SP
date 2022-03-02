@@ -14,23 +14,21 @@
 
 	Checa se o parâmetro recebido é um alfanumérico. (letras e números)
 */
+#include"libft.h"
 
-unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
-	unsigned int index;
+	unsigned int	src_length;
+	unsigned int	copy_length;
 
-
-	index = 0;
-	while(index + 1 < size && src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
+	src_length = ft_strlen(src);
 	if (size != 0)
-		dest[index] = '\0';
-	while (src[index] != '\0')
 	{
-		index = index + 1;
+		copy_length = src_length;
+		if (size <= src_length)
+			copy_length = size - 1;
+		ft_memcpy(dest, src, copy_length);
+		dest[copy_length] = '\0';
 	}
-	return(index);
+	return (src_length);
 }

@@ -9,30 +9,19 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-
 */
+#include"libft.h"
 #include<stdlib.h>
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-	char *result;
-	int index, size;
+	char			*result;
+	unsigned int	size;
 
-	size = 0;
-	index = 0;
-	while(s[index] != '\0')
-	{
-		index++;
-		size++;
-	}
-
+	size = ft_strlen(s) + 1;
 	result = malloc(size);
-	index = 0;
-	while(s[index] != '\0')
-	{
-		result[index] = s[index];
-		index++;
-	}
-	result[index] = '\0';
-	return result;
+	if (result == NULL)
+		return (result);
+	ft_strlcpy(result, s, size);
+	return (result);
 }

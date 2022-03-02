@@ -1,4 +1,4 @@
- /* ********************************************************************************* */
+/* ********************************************************************************* */
 /*                                                                  /\_____/\        */
 /*   ft_memcmp.c                                                   /  o   o  \       */
 /*                                                                ( ==  ^  == )      */
@@ -16,22 +16,20 @@
 	Caso a comparação seja igual, ela retorna 0, caso contrário retorna um
 	número positivo (se 's1' > 's2') ou um número negativo (se 's2' > 's1').
 */
- int ft_memcmp(const void *s1, const void *s2, unsigned int size)
+int	ft_memcmp(const void *s1, const void *s2, unsigned int size)
 {
-	unsigned int index;
-	const unsigned char * converted_s1;
-	const unsigned char * converted_s2;
+	unsigned int		index;
+	const unsigned char	*converted_s1;
+	const unsigned char	*converted_s2;
 
 	converted_s1 = s1;
 	converted_s2 = s2;
 	index = 0;
 	while (index < size)
 	{
-		if(converted_s1[index] != converted_s2[index])
-		{
-			return((int) (converted_s1[index] - converted_s2[index]));
-		}
+		if (converted_s1[index] != converted_s2[index])
+			return ((int)(converted_s1[index] - converted_s2[index]));
 		index++;
 	}
-	return(0);
+	return (0);
 }

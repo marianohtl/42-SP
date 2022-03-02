@@ -12,24 +12,20 @@
 */
 #include"libft.h"
 
-char * ft_strrchr (const char *string, int c)
+char	*ft_strrchr(const char *string, int c)
 {
-	unsigned int index;
-	unsigned int length;
-	char convert_c;
+	unsigned int	length;
+	char			convert_c;
 
 	length = ft_strlen(string);
-	index = 0;
 	convert_c = (char) c;
-	while (string[index])
+	while (length > 0)
 	{
 		if (string[length] == convert_c)
-			return((char *)&string[length]);
-
+			return ((char *)&string[length]);
 		length--;
-		index++;
 	}
 	if (string[length] == convert_c)
-		return((char *)&string[length]);
+		return ((char *)&string[length]);
 	return (NULL);
 }

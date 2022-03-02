@@ -14,14 +14,9 @@
 	 Converte o parâmetro 'c' recebido para minúsculo, se possível.
 */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	int new_character;
-
-	new_character = c;
-	if(c >= 'A' && c <= 'Z')
-	{
-		new_character = c + 32;
-	}
-	return(new_character);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

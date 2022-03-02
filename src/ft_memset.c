@@ -16,14 +16,15 @@
 	 de memória apontado por s com o valor de c.
 */
 
-void *ft_memset(void *s, int c, unsigned int n)
+void	*ft_memset(void *s, int c, unsigned int n)
 {
-	unsigned int index;
+	unsigned int	index;
+
 	index = 0;
 	while (index < n)
 	{
 		((unsigned char *)s)[index] = c;
 		index++;
 	}
-	return s;
+	return (s);
 }

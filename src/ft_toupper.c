@@ -14,14 +14,9 @@
 	 Converte o parâmetro 'c' recebido para maiúsculo, se possível.
 */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	int new_character;
-
-	new_character = c;
-	if(c >= 'a' && c <= 'z')
-	{
-		new_character = c - 32;
-	}
-	return(new_character);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

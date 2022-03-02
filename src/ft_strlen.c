@@ -16,13 +16,12 @@
 	 derando o byte nulo final \0.
 */
 
-unsigned int ft_strlen(const char *s)
+unsigned int	ft_strlen(const char *s)
 {
-	unsigned int index;
-	index = 0;
-	while (s[index] != 0)
-	{
-		index = index + 1;
-	}
-	return index;
+	unsigned int	length;
+
+	length = 0;
+	while (s[length] != 0)
+		length++;
+	return (length);
 }

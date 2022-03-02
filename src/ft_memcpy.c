@@ -18,14 +18,19 @@
 
 */
 
-void *ft_memcpy(void *dest, const void *src, unsigned int n)
+void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
-	unsigned int index;
+	unsigned int		index;
+	unsigned char		*str_dest;
+	const unsigned char	*str_src;
+
+	str_dest = dest;
+	str_src = src;
 	index = 0;
 	while (index < n)
 	{
-		((unsigned char *)dest)[index] = ((unsigned char *)src)[index];
+		str_dest[index] = str_src[index];
 		index = index + 1;
 	}
-	return dest;
+	return (dest);
 }

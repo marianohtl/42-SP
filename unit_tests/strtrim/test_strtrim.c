@@ -29,6 +29,7 @@ int main()
 	test_strtrim("       amendoim        ", " ","amendoim");
 	test_strtrim("banana", "ban","");
 	test_strtrim("banana", "ba","nan");
+	test_strtrim("   xxxtripouille", " x","tripouille");
 	test_strtrim("banananu", "nu","banana");
 	test_strtrim("banananu", "ana","banananu");
 	test_strtrim("banananu","", "banananu");

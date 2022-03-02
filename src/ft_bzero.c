@@ -9,18 +9,13 @@
 /*                                                                                   */
 /* ********************************************************************************* */
 /*
-    This function sets the first n bytes of the area starting at s to zero (bytes containing aq\0aq).
+    This function sets the first n bytes of the area starting at s to zero (bytes containing '\0').
 
-	Esta função seta os 'n' primeiros bytes que iniciam '*s' para zero.
+	Esta função seta os 'n' primeiros bytes que iniciam '*s' para zero (bytes contendo '\0').
 */
+#include"libft.h"
 
-void ft_bzero(void *s, unsigned int n)
+void	ft_bzero(void *s, unsigned int n)
 {
-	unsigned int index;
-	index = 0;
-	while (index < n)
-	{
-		((unsigned char *)s)[index] = '\0';
-		index++;
-	}
+	ft_memset(s, '\0', n);
 }
