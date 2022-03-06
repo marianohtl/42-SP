@@ -10,15 +10,15 @@
 /* ********************************************************************************* */
 /*
 */
-#include"libft.h"
-#include<stdlib.h>
 
-void	*ft_calloc(unsigned int nmenb, unsigned int size)
+#include"libft.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned int	length;
+	size_t			length;
 	void			*result;
 
-	length = nmenb * size;
+	length = nmemb * size;
 	result = malloc(length);
 	if (result == NULL)
 		return (result);
