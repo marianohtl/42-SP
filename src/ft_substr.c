@@ -18,24 +18,24 @@
 /*
 
 */
-#include<stdlib.h>
+
 #include"libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, unsigned int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substring;
-	unsigned int	size;
-	unsigned int	diff;
-	unsigned int	memo;
+	char	*substring;
+	size_t	size;
+	size_t	diff;
+	size_t	memo;
 
 	size = ft_strlen(s);
 	diff = size - start;
 	if (size < start)
 		diff = 0;
-	if (diff < len)
-		memo = diff;
-	else
+	if (diff >= len)
 		memo = len;
+	else
+		memo = diff;
 	substring = malloc((memo + 1) * sizeof(*substring));
 	if (substring == NULL)
 		return (substring);

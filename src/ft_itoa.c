@@ -24,10 +24,9 @@ Description
 Allocates (with mallloc(3)) and returns a string representing the integer
 received as an argument. Negative numbers must be handled.
 */
-#include <stdlib.h>
 #include"libft.h"
 
-int	ft_get_digit(int numerator)
+static int	ft_get_digit(int numerator)
 {
 	int	digit;
 
@@ -40,7 +39,7 @@ int	ft_get_digit(int numerator)
 	return (digit);
 }
 
-void	ft_make_char_number(int n, char *number, int digit, char signal)
+static void	ft_make_char_number(int n, char *number, int digit, char signal)
 {
 	number[digit] = '\0';
 	digit--;
@@ -71,7 +70,7 @@ char	*ft_itoa(int n)
 		signal = 1;
 	}
 	digit = ft_get_digit(n) + signal;
-	number = malloc(digit + 1);
+	number = malloc((digit + 1) * sizeof(*number));
 	if (number == NULL)
 		return (number);
 	ft_make_char_number(n, number, digit, signal);
