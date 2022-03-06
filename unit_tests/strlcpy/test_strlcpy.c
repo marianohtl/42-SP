@@ -2,12 +2,12 @@
 #include<stdio.h>
 #include<bsd/string.h>
 
-void test_strlcpy(char *dest, const char *src, char *dest_test, const char *src_test, unsigned int size)
+void test_strlcpy(char *dest, const char *src, char *dest_test, const char *src_test, size_t size)
 {
-	int i = 0;
+	size_t i = 0;
 
-	unsigned int result = ft_strlcpy(dest,src,size);
-	unsigned int expected = strlcpy(dest_test,src_test,size);
+	size_t result = ft_strlcpy(dest,src,size);
+	size_t expected = strlcpy(dest_test,src_test,size);
 
 	if(result != expected)
 	{

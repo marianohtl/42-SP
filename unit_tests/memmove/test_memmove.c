@@ -2,9 +2,9 @@
 #include<stdio.h>
 #include<string.h>
 
-void test_memmove(void *dest, const void *src, void *dest_test, void *src_test , unsigned int n)
+void test_memmove(void *dest, const void *src, void *dest_test, void *src_test , size_t n)
 {
-	int i;
+	size_t i;
 	i = 0;
 
 	char *result = (char*)ft_memmove(dest, src, n);

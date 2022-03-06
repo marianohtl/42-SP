@@ -2,10 +2,10 @@
 #include<stdio.h>
 #include<string.h>
 
-void test_memset(void *s, int c, unsigned int n)
+void test_memset(void *s, int c, size_t n)
 {
 	char str[100];
-	int i;
+	size_t i;
 	str[0] = 'Y';
 	((char *)s)[0] = 'Y';
 	i = 0;

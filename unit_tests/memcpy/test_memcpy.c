@@ -2,10 +2,10 @@
 #include<stdio.h>
 #include<string.h>
 
-void test_memcpy(void *dest, const void *src, unsigned int n)
+void test_memcpy(void *dest, const void *src, size_t n)
 {
 	char str[100];
-	int i;
+	size_t i;
 	str[0] = 'Y';
 	((char *)dest)[0] = 'Y';
 	i = 0;

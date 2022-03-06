@@ -4,11 +4,11 @@
 
 void test_strlen(char *s)
 {
-	int result = ft_strlen(s);
-	int expected = strlen(s);
+	size_t result = ft_strlen(s);
+	size_t expected = strlen(s);
 
 	if(result != expected){
-		printf("Return Error\n\tResult   %d\n\tExpected %d\n", result, expected );
+		printf("Return Error\n\tResult   %lu\n\tExpected %lu\n", result, expected );
 		return;
 	}
 	printf("Return Ok\n");

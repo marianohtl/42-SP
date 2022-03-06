@@ -2,16 +2,16 @@
 #include<stdio.h>
 #include<bsd/string.h>
 
-void test_strlcat(char *dest, const char *src, char *origin_dest, const char *origin_src, unsigned int size)
+void test_strlcat(char *dest, const char *src, char *origin_dest, const char *origin_src, size_t size)
 {
-	int i = 0;
+	size_t i = 0;
 
-	unsigned int result = ft_strlcat(dest,src,size);
-	unsigned int expected = strlcat(origin_dest, origin_src, size);
+	size_t result = ft_strlcat(dest,src,size);
+	size_t expected = strlcat(origin_dest, origin_src, size);
 
 	if(result != expected)
 	{
-		printf("Return Error\n\tResult   %d\n\tExpected %d\n",result, expected);
+		printf("Return Error\n\tResult   %lu\n\tExpected %lu\n",result, expected);
 	}
 
 	while (i < size && origin_dest[i] != '\0')
