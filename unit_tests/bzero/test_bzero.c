@@ -2,10 +2,10 @@
 #include<stdio.h>
 #include<string.h>
 
-void test_bzero(void *s, unsigned int n)
+void test_bzero(void *s, size_t n)
 {
 	char str[100];
-	int i;
+	size_t i;
 	str[0] = 'Y';
 	((char *)s)[0] = 'Y';
 	i = 0;
