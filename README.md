@@ -1,5 +1,6 @@
 # Libft - 42-SP
-
+![Libft - 42-SP](https://raw.githubusercontent.com/marianohtl/LibFT/main/img/libft.png)
+<br> 
 Your very first own library
 
 **Summary:**  
