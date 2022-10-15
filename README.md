@@ -7,7 +7,6 @@ Your very first own library
 This project is about coding a C library.  
 It will contain a lot of general purpose functions your programs will rely upon.
 
-### Chapter III
 ##### Mandatory part
 
 <br>
@@ -211,8 +210,6 @@ Some of the following functions can be useful for writing the functions of Part 
 <br>
 
 
-## Chapter IV
-
 ## Bonus part
 
 If you completed the mandatory part, do not hesitate to go further by doing this extra one. It will bring bonus points if passed successfully. <br>
@@ -349,10 +346,7 @@ the content. |
 | External functs. | malloc, free |
 | Description | Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed. |
 
-
-
-
-## Chapter V
+<br>
 
 ### Submission and peer-evaluation
 
